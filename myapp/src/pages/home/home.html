@@ -1,14 +1,23 @@
 <ion-header>
-  <ion-navbar>
+  <!-- <ion-navbar>
     <ion-title>
       Ionic Blank
     </ion-title>
-  </ion-navbar>
+  </ion-navbar> -->
+  <ion-toolbar color="secondary">
+    <img src="../../assets/imgs/Menu/Logo.png" class="logo" />
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
+<ion-content> <!--padding-->
+  <!-- The world is your oyster.
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  </p> -->
+  <ion-list *ngFor="let menu of menuData" no-padding>
+    <ion-card>
+      <img src="{{menu.pic}}" />
+      <div class="card-title" [navPush]=menu.pushPage>{{menu.title}}</div>
+    </ion-card>
+  </ion-list>
 </ion-content>
