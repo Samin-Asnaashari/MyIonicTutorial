@@ -4,15 +4,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> 
-    <ion-toolbar>
-      <ion-title>
-        Sign into App
-      </ion-title>
-    </ion-toolbar>
+<ion-content>
+  <ion-toolbar> <ion-title> Sign into App </ion-title> </ion-toolbar>
 
-    <button ion-button color="secondary">Sign In</button>
-    <p>Register a free account to receive rewards from the App</p>
-    <button ion-button color="danger" [navPush]="regPage">Create an Account</button>
+  <ion-item>
+    <ion-label color="danger">Email Address</ion-label>
+    <ion-input type="email" [(ngModel)]="login.email" name="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="danger">Password</ion-label>
+    <ion-input
+      type="password"
+      [(ngModel)]="login.passWrd"
+      name="passWrd1"
+    ></ion-input>
+  </ion-item>
 
+  <button ion-button color="secondary" (click)="signOn()">Sign In</button>
+  <p>Register a free account to receive rewards from the App</p>
+  <button ion-button color="danger" [navPush]="regPage">
+    Create an Account
+  </button>
 </ion-content>

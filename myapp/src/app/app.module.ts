@@ -11,6 +11,10 @@ import { AngularFireAuthModule } from "angularfire2/auth";
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import { UserServiceProvider } from '../providers/user-service/user-service';
+
+import { IonicStorageModule } from '@ionic/storage';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyC8iwFL9cWlmpPB7J34RS-kOQe8siIUOmg",
   authDomain: "coffeedeer-a71f8.firebaseapp.com",
@@ -29,7 +33,8 @@ export const firebaseConfig = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,7 +44,8 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserServiceProvider
   ]
 })
 export class AppModule {}
