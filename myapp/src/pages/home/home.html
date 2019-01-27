@@ -23,7 +23,7 @@
   <ion-list *ngFor="let menu of menuData" no-padding>
     <ion-card>
       <img src="{{ menu.pic }}" class="menu-pic" />
-      <div class="card-title" [navPush]="menu.pushPage">{{ menu.title }}</div>
+      <div class="card-title" (click)="myPagePush(menu.pushPage)">{{ menu.title }}</div> <!--[navPush]="menu.pushPage"--> 
     </ion-card>
   </ion-list>
 </ion-content>

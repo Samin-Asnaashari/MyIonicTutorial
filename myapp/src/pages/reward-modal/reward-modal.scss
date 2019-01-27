@@ -1,0 +1,28 @@
+page-reward-modal {
+  ion-toolbar {
+    text-align: center;
+  }
+
+  .text-align {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    top: 5em;
+  }
+
+  .text-format {
+    font-weight: bold;
+    color: #fff;
+    font-size: 2em;
+  }
+
+  ion-card {
+    align-items: center;
+    text-align: center;
+  }
+
+  .award-img {
+    width: 60%;
+    height: 60%;
+  }
+}

@@ -7,13 +7,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { RewardModalPageModule } from '../pages/reward-modal/reward-modal.module';
 
 import { UserServiceProvider } from '../providers/user-service/user-service';
-
-import { IonicStorageModule } from '@ionic/storage';
+import { RewardServiceProvider } from '../providers/reward-service/reward-service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC8iwFL9cWlmpPB7J34RS-kOQe8siIUOmg",
@@ -34,7 +35,8 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    RewardModalPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,7 +47,8 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserServiceProvider
+    UserServiceProvider,
+    RewardServiceProvider
   ]
 })
 export class AppModule {}

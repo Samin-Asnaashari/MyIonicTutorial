@@ -5,18 +5,21 @@ import * as firebase from "firebase/app";
 import { AlertController } from "ionic-angular";
 import { Storage } from "@ionic/storage";
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database"; // FirebaseListObservable
+import { RewardServiceProvider } from '../reward-service/reward-service';
 // Dexi
 
 @Injectable()
 export class UserServiceProvider {
   items: AngularFireList<any>;
   success: boolean;
+  user: string;
 
   constructor(
     private afAuth: AngularFireAuth,
     public alectCtrl: AlertController,
     private storage: Storage,
-    private fbDb: AngularFireDatabase
+    private fbDb: AngularFireDatabase,
+    private reward: RewardServiceProvider
   ) {
     //public http: HttpClient
     // console.log('Hello UserServiceProvider Provider');
@@ -77,7 +80,8 @@ export class UserServiceProvider {
   updateUser(theUser, theUserData) {
     let newData = {
       creation: theUserData.creation,
-      logins: theUserData.logins + 1,
+      // logins: theUserData.logins + 1,
+      logins: theUserData.logins,
       rewardCount: theUserData.rewardCount,
       lastLogin: new Date().toLocaleString(),
       id: theUserData.id
@@ -100,9 +104,14 @@ export class UserServiceProvider {
               this.displayAlert(user, "New account saved for this user")
             );
           } else {
-            this.updateUser(user, returned).then(updated =>
-              console.log(user, updated)
-            );
+
+            this.reward.rewardsCheck(user, returned)
+            .then(rewardResult => {
+              this.updateUser(user, rewardResult).then(updated => //returned
+                console.log(user, updated)
+              );
+            });
+           
           }
         });
         this.success = true;
@@ -119,9 +128,10 @@ export class UserServiceProvider {
     //this.storageControl('delete');
     this.afAuth.auth
       .signOut()
-      .then(loggedOut =>
+      .then(loggedOut => {
         this.displayAlert("Logged out", "Come back and visit soon")
-      )
+        this.success = false;
+      })
       .catch(err => this.displayAlert("Error logging out", err));
   }
 }
