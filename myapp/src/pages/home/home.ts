@@ -3,7 +3,7 @@ import { NavController } from "ionic-angular";
 import { AngularFireAuth } from "angularfire2/auth";
 import * as firebase from "firebase/app";
 import { UserServiceProvider } from "../../providers/user-service/user-service";
-import { FCM } from '@ionic-native/fcm';
+// import { FCM } from '@ionic-native/fcm';
 
 @Component({
   selector: "page-home",
@@ -39,7 +39,8 @@ export class HomePage implements OnInit {
   constructor(
     public navCtrl: NavController,
     private afAuth: AngularFireAuth,
-    private userService: UserServiceProvider
+    private userService: UserServiceProvider,
+    // provate fcm: FCM
   ) {}
 
   ngOnInit() {
@@ -50,7 +51,7 @@ export class HomePage implements OnInit {
         this.loggedIn = this.userService.user = user.email;
       }
     });
-    this.initFcm();
+    // this.initFcm();
   }
 
   signOff() {
@@ -79,5 +80,5 @@ export class HomePage implements OnInit {
   //       this.userService.displayAlert(data.title, data.content);
   //     }
   //   });
-  }
+  // }
 }

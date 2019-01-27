@@ -8,6 +8,8 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { IonicStorageModule } from '@ionic/storage';
+// import { Firebase, FirebaseOriginal } from '@ionic-native/firebase';
+// import { FCM, FCMOriginal } from '@ionic-native/fcm'; 
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -15,8 +17,6 @@ import { RewardModalPageModule } from '../pages/reward-modal/reward-modal.module
 
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import { RewardServiceProvider } from '../providers/reward-service/reward-service';
-
-import { FCM } from '@ionic-native/fcm'; 
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC8iwFL9cWlmpPB7J34RS-kOQe8siIUOmg",
@@ -50,7 +50,9 @@ export const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider,
-    RewardServiceProvider
+    RewardServiceProvider,
+    // FirebaseOriginal,
+    // FCMOriginal
   ]
 })
 export class AppModule {}
