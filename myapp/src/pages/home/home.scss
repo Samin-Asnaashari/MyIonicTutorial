@@ -1,8 +1,20 @@
 page-home {
-    
+
+    .logo {
+        width: 30%;
+        height: 30%;
+    }
+
+    ion-toolbar {
+        text-align: center;
+    }
+
     ion-card{
         position: relative;
         text-align: center;
+        flex-direction: column;
+        min-height: 100%;
+        margin: 0px;
     }
 
     .card-title {
@@ -14,12 +26,7 @@ page-home {
         color: #fff;
     }
 
-    .logo {
-        width: 40%;
-        height: 35%;
-    }
-
-    ion-toolbar {
-        text-align: center;
+    .menu-pic {
+        
     }
 }
