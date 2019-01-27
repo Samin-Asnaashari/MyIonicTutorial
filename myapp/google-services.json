@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "611014045248",
+    "firebase_url": "https://coffeedeer-a71f8.firebaseio.com",
+    "project_id": "coffeedeer-a71f8",
+    "storage_bucket": "coffeedeer-a71f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611014045248:android:3951de60ff7761b7",
+        "android_client_info": {
+          "package_name": "com.deer.coffee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611014045248-9mrvpdfa24f2o9lhmuhf6ou9fe12hcp5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcAy5KkhwgZqsE3yfEV_MO208M5zMc8y4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

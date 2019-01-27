@@ -16,6 +16,8 @@ import { RewardModalPageModule } from '../pages/reward-modal/reward-modal.module
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import { RewardServiceProvider } from '../providers/reward-service/reward-service';
 
+import { FCM } from '@ionic-native/fcm'; 
+
 export const firebaseConfig = {
   apiKey: "AIzaSyC8iwFL9cWlmpPB7J34RS-kOQe8siIUOmg",
   authDomain: "coffeedeer-a71f8.firebaseapp.com",
