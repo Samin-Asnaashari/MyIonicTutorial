@@ -8,12 +8,19 @@
     <button ion-button clear [navPush]="logPage">Sign In</button>
   </ion-toolbar>
   <ion-toolbar *ngIf="loggedIn" color="secondary">
-      <button ion-button icon-left clear small>
-        <ion-icon name="contact"></ion-icon>
-        {{loggedIn}} Logged in
-      </button>
-      <button ion-button outline small (click)="signOff()">Sign Out</button>
-    </ion-toolbar>
+    <button ion-button icon-left outline clear small (click)="myPagePush(checkOut)">
+      <ion-icon name="cart"></ion-icon>
+      Checkout
+    </button>
+    <button ion-button icon-left clear small>
+      <ion-icon name="contact"></ion-icon>
+      {{ loggedIn }} Logged in
+    </button>
+    <button ion-button icon-left outline clear small (click)="signOff()">
+      <ion-icon name="close-circle"></ion-icon>
+      Sign Out
+    </button>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -23,7 +30,10 @@
   <ion-list *ngFor="let menu of menuData" no-padding>
     <ion-card>
       <img src="{{ menu.pic }}" class="menu-pic" />
-      <div class="card-title" (click)="myPagePush(menu.pushPage)">{{ menu.title }}</div> <!--[navPush]="menu.pushPage"--> 
+      <div class="card-title" (click)="myPagePush(menu.pushPage)">
+        {{ menu.title }}
+      </div>
+      <!--[navPush]="menu.pushPage"-->
     </ion-card>
   </ion-list>
 </ion-content>

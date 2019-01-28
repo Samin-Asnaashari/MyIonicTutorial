@@ -17,6 +17,8 @@ import { RewardModalPageModule } from '../pages/reward-modal/reward-modal.module
 
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import { RewardServiceProvider } from '../providers/reward-service/reward-service';
+import { MenuServiceProvider } from '../providers/menu-service/menu-service';
+import { CartServiceProvider } from '../providers/cart-service/cart-service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC8iwFL9cWlmpPB7J34RS-kOQe8siIUOmg",
@@ -51,8 +53,9 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider,
     RewardServiceProvider,
-    // FirebaseOriginal,
-    // FCMOriginal
+    MenuServiceProvider,
+    CartServiceProvider,
+    // FCM
   ]
 })
 export class AppModule {}

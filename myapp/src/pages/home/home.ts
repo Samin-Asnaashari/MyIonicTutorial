@@ -35,6 +35,7 @@ export class HomePage implements OnInit {
 
   logPage: any;
   loggedIn: any;
+  checkOut: any;
 
   constructor(
     public navCtrl: NavController,
@@ -45,6 +46,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.logPage = "LoginPage";
+    this.checkOut = "CheckoutPage";
 
     this.afAuth.auth.onAuthStateChanged(user => {
       if (user) {

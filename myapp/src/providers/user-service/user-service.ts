@@ -134,4 +134,8 @@ export class UserServiceProvider {
       })
       .catch(err => this.displayAlert("Error logging out", err));
   }
+
+  returnUser() {
+    return Promise.resolve(this.user);
+  }
 }
