@@ -23,12 +23,14 @@
     "@ionic-native/core": "~4.18.0",
     "@ionic-native/fcm": "^5.0.0",
     "@ionic-native/firebase": "^5.0.0",
+    "@ionic-native/paypal": "^5.0.0",
     "@ionic-native/splash-screen": "~4.18.0",
     "@ionic-native/status-bar": "~4.18.0",
     "@ionic/pro": "2.0.4",
     "@ionic/storage": "2.2.0",
     "@types/cordova": "0.0.34",
     "angularfire2": "^5.1.1",
+    "com.paypal.cordova.mobilesdk": "3.5.0",
     "cordova-plugin-fcm": "2.1.2",
     "cordova-plugin-fcm-with-dependecy-updated": "2.4.0",
     "cordova-plugin-firebase": "2.0.5",
@@ -49,7 +51,8 @@
     "plugins": {
       "cordova-plugin-fcm": {},
       "cordova-plugin-fcm-with-dependecy-updated": {},
-      "cordova-plugin-firebase": {}
+      "cordova-plugin-firebase": {},
+      "com.paypal.cordova.mobilesdk": {}
     }
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { UserServiceProvider } from "../../providers/user-service/user-service";
 import { CartServiceProvider } from "../../providers/cart-service/cart-service";
+import { HomePage } from '../../../../samionic/src/app/home/home.page';
+import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
 
 @IonicPage()
 @Component({
@@ -22,9 +24,9 @@ export class CheckoutPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public userService: UserServiceProvider,
-    public cartService: CartServiceProvider
-  ) { }
+    private userService: UserServiceProvider,
+    public cartService: CartServiceProvider // private payPal: PayPal
+  ) {}
 
   ngOnInit(): void {
     this.cartService
@@ -68,7 +70,7 @@ export class CheckoutPage implements OnInit {
   }
 
   loadReward(user) {
-    this.userService.storageControl('get', `${user}-rewards`).then(returned => {
+    this.userService.storageControl("get", `${user}-rewards`).then(returned => {
       this.customer = user;
       if (!returned) {
         let tempOj = { rewardId: "No rewards generated", amount: 0 };
@@ -99,5 +101,74 @@ export class CheckoutPage implements OnInit {
   removeReward() {
     this.discountUsed = false;
     this.discount = "";
+  }
+
+  purchase() {
+    if (this.discountUsed) {
+      let tempId = this.discount.rewardId;
+      let temp = this.rewardList.map(x => x.rewardId).indexOf(tempId);
+      if (temp > -1) {
+        this.rewardList.splice(temp, 1);
+      }
+      this.userService
+        .storageControl("set", `${this.customer}-rewards`)
+        .then(results => console.log("Saved: ", results));
+      this.payCart(this.discountTotal);
+      this.cartService.emptyCart();
+      this.userService.displayAlert(
+        "Thank you",
+        `You order for ${this.discountTotal} has been paid`
+      );
+      this.navCtrl.push(HomePage);
+    } else {
+      this.payCart(this.orderTotal);
+      this.cartService.emptyCart();
+      this.userService.displayAlert(
+        "Thank you",
+        `You order for ${this.orderTotal} has been paid`
+      );
+      this.navCtrl.push(HomePage);
+    }
+  }
+
+  payCart(amt) {
+  //   this.payPal
+  //     .init({
+  //       PayPalEnvironmentProduction: "production key goes here",
+  //       PayPalEnvironmentSandbox: "SandBox Key"
+  //     })
+  //     .then(
+  //       () => {
+  //         this.payPal
+  //           .prepareToRender(
+  //             "PayPalEnvironmentSandbox",
+  //             new PayPalConfiguration({})
+  //           )
+  //           .then(
+  //             () => {
+  //               let payment = new PayPalPayment(
+  //                 amt,
+  //                 "USD",
+  //                 "Description",
+  //                 "sale"
+  //               );
+  //               this.payPal.renderSinglePaymentUI(payment).then(
+  //                 res => {
+  //                   console.log("Result from Paypal: ", res);
+  //                 },
+  //                 err => {
+  //                   console.log("Error ", err);
+  //                 }
+  //               );
+  //             },
+  //             conf => {
+  //               console.log("Configuration Error ", conf);
+  //             }
+  //           );
+  //       },
+  //       init => {
+  //         console.log("Init Error ", init);
+  //       }
+  //     );
   }
 }
