@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TournamentsPage } from '../tournaments/tournaments';
 
 // @IonicPage()
 @Component({
@@ -9,6 +10,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class MyTeamsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  goToTournaments() {
+    this.navCtrl.push(TournamentsPage);
+    // this.navCtrl.pop();
   }
 
 }

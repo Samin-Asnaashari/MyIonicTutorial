@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-team-detail',
-  templateUrl: 'team-detail.html',
+  selector: 'page-standings',
+  templateUrl: 'standings.html',
 })
-export class TeamDetailPage {
+export class StandingsPage {
 
   public team: any = {};
 

@@ -7,9 +7,12 @@
 
   <ion-content>
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <ion-list-header>Navigate</ion-list-header>
+      <button menuClose ion-item (click)="goHome()">Home</button>
+      <button menuClose ion-item (click)="goToTournaments()">Tournament</button>
+      <!-- <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
-      </button>
+      </button> -->
     </ion-list>
   </ion-content>
 

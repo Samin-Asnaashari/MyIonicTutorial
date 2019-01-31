@@ -6,7 +6,9 @@ import { MyApp } from './app.component';
 import { MyTeamsPage } from '../pages/my-teams/my-teams';
 import { TournamentsPage } from '../pages/tournaments/tournaments';
 import { TeamsPage } from '../pages/teams/teams';
+import { TeamHomePage } from '../pages/team-home/team-home';
 import { TeamDetailPage } from '../pages/team-detail/team-detail';
+import { StandingsPage } from '../pages/standings/standings';
 import { GamePage } from '../pages/game/game';
 
 
@@ -19,7 +21,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyTeamsPage,
     TournamentsPage,
     TeamsPage,
+    TeamHomePage,
     TeamDetailPage,
+    StandingsPage,
     GamePage
   ],
   imports: [
@@ -32,7 +36,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyTeamsPage,
     TournamentsPage,
     TeamsPage,
+    TeamHomePage,
     TeamDetailPage,
+    StandingsPage,
     GamePage
   ],
   providers: [
